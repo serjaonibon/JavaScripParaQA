@@ -14,10 +14,17 @@
         <h1>{{title}}</h1>
         <small>Olá, {{userName}}</small>
 
+        <footer>
+            <input placeholder="Pesquisa por nome ..." v-model="searchName"/>
+            <button type="button" @click="search()">Buscar</button>
+        </footer>
+
         <div class="characters">
             <div class="item" v-for="item of characters">
                 <img :src="item.avatar" :alt="item.nome">
                 <p>{{item.nome}}</p>
+                <button @click="like(item.nome)">Like</button>
+                <button @click="remove(item.id)">Remover</button>
             </div>
 
             
